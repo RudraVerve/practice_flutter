@@ -39,11 +39,24 @@ class _MyHomePageState extends State<MyHomePage>{
           title: Text("flutter"),
         ),
         body:Center(
-            child: Container(
-            height: 200,
-            width: 200,
-            child: Image.asset('assets/image/img1.png',fit:BoxFit.cover)
-        ))
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(child: Text('pick the time')),
+                ElevatedButton(onPressed:() async{
+                      TimeOfDay? TimePick= await showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                      initialEntryMode: TimePickerEntryMode.input);
+                      if(TimePick!=null){
+                        print('the time is : ${TimePick.hour}');
+                      }
+                }, child: Text('time'))
+              ],
+            ),
+          ),
+        )
     );
   }
 }

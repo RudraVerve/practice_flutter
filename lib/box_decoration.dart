@@ -39,7 +39,6 @@ class  myhome extends StatelessWidget {
               image: DecorationImage(
               image: NetworkImage('assets/image/toy1.png'),
                   fit: BoxFit.fill,
-
           ),
             boxShadow:[
               BoxShadow(
@@ -48,7 +47,6 @@ class  myhome extends StatelessWidget {
                 blurRadius: 10
               )
             ],
-
             )
           ),
         ),

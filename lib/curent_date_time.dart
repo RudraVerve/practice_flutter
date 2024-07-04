@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -7,10 +7,9 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( //cupertinoapp
+    return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -31,28 +30,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("flutter"),
+        title: Text(widget.title),
       ),
-      body:Center(
-        child: Container(
-          height: 200,
-          width: 200,
-          color:Colors.green,
-          child: Center(child: Text("hello", style:TextStyle(
-              color: Colors.red,
-              fontSize: 25,
-              fontWeight: FontWeight.w600
-          ))),
+      body: Center(
+        child: Text(
+          'The current date & time is: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(time)}',
+          style: TextStyle(fontSize: 25),
         ),
-      )
-
-
-
+      ),
     );
   }
 }
